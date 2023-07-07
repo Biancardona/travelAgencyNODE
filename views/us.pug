@@ -1,5 +1,27 @@
 extends ./layout/index.pug
 block content 
-        h4 About Us 
-        img(src="img/cupon.jpg")
+   main.container.mt-5 
+       .row 
+           .col-md-5
+                  img(src="img/nosotros.jpg", alt="imagen about us" class= "img-fluid")
+           .col-md-7 
+                  h1=pagina
+                  blockquote Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat nisl metus, quis posuere mi scelerisque sed. Maecenas lorem metus, scelerisque quis placerat at, congue et ligula. Ut sem nibh, laoreet eu dictum vitae, luctus ut mi. Nulla ipsum est, mattis a tellus non, tincidunt faucibus orci. Cras ullamcorper lectus non nibh ullamcorper, a porttitor arcu tristique. 
+                  p  Et erat in dui interdum fermentum. Aliquam hendrerit quam lorem, et tempor lorem auctor nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus sit amet vestibulum tortor, quis convallis neque. Sed eu auctor eros. Praesent aliquet dui diam, at fermentum velit interdum euismod. Maecenas ut mollis tortor. Maecenas rhoncus a magna vel mollis.
+                  p Vitae venenatis urna. Proin quis accumsan leo. Aliquam odio velit, lacinia vitae sapien sed, tempus lacinia tellus. Vestibulum suscipit lorem consequat justo sollicitudin vulputate. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc posuere ornare mauris vel venenatis. 
+   .listado-iconos   
+       .container.mt-5.py-5.text-center 
+            .row
+              .col-md-4 
+                 img(src="img/icono_seguridad.svg", alt="icono seguridad", class="img-fluid mb-4")      
+                 h2.mb-4 Seguridad 
+                 p Praesent in urna placerat, feugiat magna convallis, aliquet tortor.
+              .col-md-4 
+                 img(src="img/icono_destinos.svg", alt="icono destinos", class="img-fluid mb-4")      
+                 h2.mb-4 Destinos 
+                 p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              .col-md-4 
+                 img(src="img/icono_precios.svg", alt="icono precios", class="img-fluid mb-4")      
+                 h2.mb-4 Precios
+                 p Vitae venenatis urna. Proin quis accumsan leo. Aliquam odio velit,
 

@@ -10,6 +10,7 @@ const port = process.env.PORT || 4000; //Until its in production use port 4000
 app.use((req, res, next) => {
   const year = new Date();
   res.locals.actualYear = year.getFullYear(); //locals (internals variables in order to pass information through views files)
+  res.locals.nameApp = "Travel Agency";
   return next();
 });
 
