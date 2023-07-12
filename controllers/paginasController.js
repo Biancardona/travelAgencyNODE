@@ -1,6 +1,9 @@
 //CONTROLADOR: Pasa los datos a la vista y le dice que mostrar s
 //CONTROLLER: Passes the data to the VIEW and tells it what to display
 
+//Import all the DB fiels (availables in the model)
+import { Viaje } from "../models/Viaje.js";
+
 const homePage = (req, res) => {
   //req petition
   //res is the express response
@@ -20,15 +23,42 @@ const testomonialsPage = (req, res) => {
   });
 };
 
-const travelsPage = (req, res) => {
+//Using async await for the response to the DB
+const travelsPage = async (req, res) => {
+  //Read DB, create a variable to save the finAll method result in Viaje
+  //Use finAll method
+  const viajes = await Viaje.findAll();
+  // console.log(viajes);
   res.render("travels", {
-    pagina: "Travels",
+    pagina: "Next Trips",
+    resultTravels: viajes,
   });
 };
 
+const descriptionPage = async (req, res) => {
+  //Destructuring comodin
+  const { slug } = req.params;
+  //SQL where is used to folter records
+  try {
+    const viaje = await Viaje.findOne({ where: { slug: slug } });
+    res.render("travel", {
+      pagina: "Description",
+      resultDescriptions: viaje,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 const contactPage = (req, res) => {
   //Passing variables to views
   res.send("contact!"); //SEND is use to show somenthin on screen
 };
 
-export { homePage, usPage, testomonialsPage, travelsPage, contactPage };
+export {
+  homePage,
+  usPage,
+  testomonialsPage,
+  travelsPage,
+  contactPage,
+  descriptionPage,
+};
