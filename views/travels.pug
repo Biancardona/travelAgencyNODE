@@ -1,6 +1,6 @@
 extends ./layout/index.pug
 block content 
-    h1(class = "col-auto text-center") #{pagina}
+    h1(class = "col-auto text-center mt-5") #{pagina}
     main.container.mt-5  
         .row.proximos-viajes   
             each travel in resultTravels  
@@ -26,8 +26,8 @@ block content
                                 path(d='M16 3.13a4 4 0 0 1 0 7.75')
                                 path(d='M21 21v-2a4 4 0 0 0 -3 -3.85')
 
-                            | #{travel.disponibles} Lugares Disponibles 
+                            | #{travel.disponibles} Available places  
                         p=   travel.descripcion.substring(0,198) + '...'
-                        a(href=`travels/${travel.slug}`, class="btn btn-success btn-block")  Mas informacion
+                        a(href=`travels/${travel.slug}`, class="btn btn-success btn-block")  More information
     
           

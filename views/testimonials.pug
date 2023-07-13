@@ -1,6 +1,23 @@
 extends ./layout/index.pug
 block content 
+    h1(class = "col-auto text-center mt-5") #{pagina}
     main.container.mt-5  
         .row    
-        .col.mt-7
-            h1=pagina 
+        h2.d-block.w-100.text-center Add your testimonial
+        .row.justify-content-center.col
+            .col.mt-8
+                form(action="" method="POST")
+                    .form-group
+                        label(for="nombre") Name 
+                        input#nombre(type="text", placeholder="Name", name="name", class="form-control")
+                    .form-group
+                        label(for="email")  Email
+                        input#email(type="text", placeholder="Email", name="email", class="form-control")
+                    .form-group
+                        label(for="message") Message 
+                        textarea#message(placeholder="Message", name="message", class="form-control", rows=3)
+                    input.btn.btn-success.btn-block(type="submit")  
+        //El metodo a usar será POST, para almacenarlo en la DB
+        //EL id se pone con #
+        //El name sera como se leera lo qeu el usuario agregue en el form
+   

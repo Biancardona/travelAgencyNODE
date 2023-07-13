@@ -8,7 +8,7 @@ const homePage = (req, res) => {
   //req petition
   //res is the express response
   res.render("inicio", {
-    pagina: "Inicio", //Passing more data (throught an object) creating a variable called pagina
+    pagina: "Home", //Passing more data (throught an object) creating a variable called pagina
   });
 };
 const usPage = (req, res) => {
