@@ -1,18 +1,28 @@
 const testomonialMessage = (req, res) => {
   //Need to parsear the info (in index.js)
-  const mensaje = [];
+
   //Validate testimonial form, applying destructuring to read the values
   const { name, email, message } = req.body;
+  const errorMessages = [];
   if (name.trim() === "") {
-    mensaje.push({ messaje: "Name field is empty" });
+    errorMessages.push({ error: "Name field is empty" });
   }
   if (email.trim() === "") {
-    mensaje.push({ messaje: "Email field is empty" });
+    errorMessages.push({ error: "Email field is empty" });
   }
   if (message.trim() === "") {
-    mensaje.push({ messaje: "Message field is empty" });
+    errorMessages.push({ error: "Message field is empty" });
   }
-  console.log(mensaje);
+  //If exist a message, render an alert
+  if (errorMessages.length > 0) {
+    res.render("testimonials", {
+      pagina: "Testimonials",
+      errorMessages,
+      name: name,
+      email: email,
+      message: message,
+    });
+  }
 };
 
 export { testomonialMessage };
