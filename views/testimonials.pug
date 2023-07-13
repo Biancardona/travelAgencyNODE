@@ -6,7 +6,7 @@ block content
         h2.d-block.w-100.text-center Add your testimonial
         .row.justify-content-center.col
             .col.mt-8
-                form(action="" method="POST")
+                form(action="/testimonials" method="POST")
                     .form-group
                         label(for="nombre") Name 
                         input#nombre(type="text", placeholder="Name", name="name", class="form-control")
@@ -17,7 +17,5 @@ block content
                         label(for="message") Message 
                         textarea#message(placeholder="Message", name="message", class="form-control", rows=3)
                     input.btn.btn-success.btn-block(type="submit")  
-        //El metodo a usar será POST, para almacenarlo en la DB
-        //EL id se pone con #
-        //El name sera como se leera lo qeu el usuario agregue en el form
+   
    

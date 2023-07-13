@@ -8,6 +8,8 @@ import {
   descriptionPage,
 } from "../controllers/paginasController.js";
 
+import { testomonialMessage } from "../controllers/testimonialController.js";
+
 const router = express.Router();
 
 //Rutas asociada que va al controlador
@@ -16,6 +18,8 @@ router.get("/", homePage);
 router.get("/us", usPage);
 
 router.get("/testimonials", testomonialsPage);
+
+router.post("/testimonials", testomonialMessage);
 
 router.get("/travels", travelsPage);
 

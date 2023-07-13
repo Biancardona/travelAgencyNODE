@@ -23,6 +23,9 @@ app.use((req, res, next) => {
 
 app.set("view engine", "pug"); //Enabling PUG
 
+//ADDing body parser to read form data
+app.use(express.urlencoded({ extended: true }));
+
 app.use(express.static("public")); //Defining public static files
 
 app.use("/", router);
