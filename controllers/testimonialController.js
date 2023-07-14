@@ -1,4 +1,6 @@
-const testomonialMessage = (req, res) => {
+import { Testimoniales } from "../models/Testimoniales.js";
+
+const testomonialMessage = async (req, res) => {
   //Need to parsear the info (in index.js)
 
   //Validate testimonial form, applying destructuring to read the values
@@ -22,6 +24,17 @@ const testomonialMessage = (req, res) => {
       email: email,
       message: message,
     });
+  } else {
+    try {
+      await Testimoniales.create({
+        name,
+        email,
+        message,
+      });
+      res.redirect("/testimonials");
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 

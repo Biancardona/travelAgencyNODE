@@ -38,7 +38,7 @@ const travelsPage = async (req, res) => {
 const descriptionPage = async (req, res) => {
   //Destructuring comodin
   const { slug } = req.params;
-  //SQL where is used to folter records
+  //SQL where is used to filter records(SQL language)
   try {
     const viaje = await Viaje.findOne({ where: { slug: slug } });
     res.render("travel", {
