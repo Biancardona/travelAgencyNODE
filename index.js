@@ -1,7 +1,10 @@
 import express from "express";
 import router from "./routes/router.js";
 import db from "./config/db.js";
+import dotenv from "dotenv";
 
+dotenv.config();
+console.log(process.env.DB_HOST); //Its a way to read de environment variable
 const app = express(); //Function to execute express
 
 //conecting DB
