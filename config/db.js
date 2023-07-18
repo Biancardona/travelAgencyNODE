@@ -6,12 +6,15 @@ dotenv.config();
 //New instance of sequelize
 //Pass the name of the db , and the user name, the password(empty), and some configs
 const db = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASS,
+  process.env.BD_NAME,
+  process.env.BD_USER,
+  process.env.BD_PASS,
+  process.env.BD_PORT,
+  process.env.BD_HOST,
+
   {
-    host: process.env.HOST,
-    port: "3306",
+    host: process.env.BD_HOST,
+    port: process.env.BD_PORT,
     dialect: "mysql",
     define: {
       timestamps: false,
