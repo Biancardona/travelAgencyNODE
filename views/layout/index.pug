@@ -8,9 +8,10 @@ html(lang="en")
         link(href='https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Staatliches&display=swap' rel='stylesheet')
         link(rel="stylesheet", href="/css/bootstrap.css")
         link(rel="stylesheet", href="/css/style.css")
-    body 
+    body(class=clase)
       //Con include puedes utilizar codigo de otros archivos que estan en el mismo directorio 
       include header
+      block slider
       //pug utiliza bloques( para poder usar codigo en otras vistas)
       block content 
       include footer

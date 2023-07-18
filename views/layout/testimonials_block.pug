@@ -1,0 +1,12 @@
+testimonials_block
+blockquote.text-center Comentarios
+        .row.testimoniales
+            each testimonial in resultTestimonials
+                .col-md-6.col-lg-4.mb-4
+                    .card  
+                        .card-body 
+                            blockquote.blockquote
+                            p.mb-0 
+                                | #{testimonial.message}
+                            footer.blockquote-footer
+                                | #{testimonial.name}     

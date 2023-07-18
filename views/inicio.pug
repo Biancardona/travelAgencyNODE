@@ -1,5 +1,27 @@
 extends ./layout/index.pug
+block slider 
+    .slider
+        h1 Rio de Janeiro
+        em aventura
 block content 
     main.container.mt-5  
-        .row    
-            h1=pagina 
+        h2.text-center.mb-5 Travel Agency 
+        .row.mb-5       
+            .col-md-6 
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing commodo elit at imperdiet dui accumsan sit. Vitae congue eu consequat ac felis. Sed id semper risus in hendrerit gravida rutrum. Sed sed risus pretium quam vulputate dignissim suspendisse in. 
+                P Vitae elementum curabitur vitae nunc sed velit dignissim sodales ut. Aliquet sagittis id consectetur purus ut faucibus pulvinar elementum. Mi eget mauris pharetra et ultrices neque. Odio morbi quis commodo odio aenean sed adipiscing diam. In hendrerit gravida rutrum quisque non tellus orci ac auctor.
+            .col-md-6 
+                img(src="/img/inicio_nosotros.jpg", alt= "imagen us", class="img-fluid")
+        include ./layout/travel_block.pug
+    .descuento 
+        .container  
+            .row 
+                .col-md-6 
+                    .contenido 
+                        h3 5% de Descuento 
+                        p.titulo Viaje a Canada 
+                        p.fecha 20 de Marzo de 2022 - 28 de Marzo de 2022
+                        p.precio $2,500 USD 
+    .container 
+        h2.mt-5.text-center Testimoniales
+        include ./layout/testimonials_block.pug

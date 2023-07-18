@@ -15,14 +15,18 @@ const testomonialMessage = async (req, res) => {
   if (message.trim() === "") {
     errorMessages.push({ error: "Message field is empty" });
   }
-  //If exist a message, render an alert
+  //If exist a message, render it
   if (errorMessages.length > 0) {
+    //Consult existing testimoniales
+    const testimoniales = await Testimoniales.findAll();
+    //Render testimonial result
     res.render("testimonials", {
       pagina: "Testimonials",
       errorMessages,
       name: name,
       email: email,
       message: message,
+      resultTestimonials: testimoniales,
     });
   } else {
     try {

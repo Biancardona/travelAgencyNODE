@@ -3,13 +3,30 @@
 
 //Import all the DB fiels (availables in the model)
 import { Viaje } from "../models/Viaje.js";
+import { Testimoniales } from "../models/Testimoniales.js";
 
-const homePage = (req, res) => {
+const homePage = async (req, res) => {
   //req petition
   //res is the express response
-  res.render("inicio", {
-    pagina: "Home", //Passing more data (throught an object) creating a variable called pagina
-  });
+  //USar una promise para ejecutar viaje y testimoniales, y asi evitar el await
+
+  const promiseResults = [];
+  promiseResults.push(Viaje.findAll({ limit: 3 }));
+  promiseResults.push(Testimoniales.findAll({ limit: 3 }));
+
+  try {
+    //Para que ambas consultas corran al mismo tiempo
+    const resultado = await Promise.all(promiseResults);
+
+    res.render("inicio", {
+      pagina: "Home", //Passing more data (throught an object) creating a variable called pagina
+      clase: "home",
+      resultTravels: resultado[0],
+      resultTestimonials: resultado[1],
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 const usPage = (req, res) => {
   res.render("us", {
@@ -17,16 +34,20 @@ const usPage = (req, res) => {
   });
 };
 
-const testomonialsPage = (req, res) => {
+const testomonialsPage = async (req, res) => {
+  const testimoniales = await Testimoniales.findAll();
+  //If exist a message, render it
   res.render("testimonials", {
     pagina: "Testimonials",
+    resultTestimonials: testimoniales,
   });
 };
 
 //Using async await for the response to the DB
 const travelsPage = async (req, res) => {
   //Read DB, create a variable to save the finAll method result in Viaje
-  //Use finAll method
+  //Use finAll method= returns an array
+
   const viajes = await Viaje.findAll();
   // console.log(viajes);
   res.render("travels", {
