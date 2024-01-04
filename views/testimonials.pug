@@ -14,13 +14,13 @@ block content
                 form(action="/testimonials" method="POST")
                     .form-group
                         label(for="nombre") Name 
-                        input#nombre(type="text", placeholder="Name", name="name", class="form-control", value=name)
+                        input#nombre(type="text", placeholder="Name", name="nombre", class="form-control", value=nombre)
                     .form-group
-                        label(for="email")  Email
-                        input#email(type="text", placeholder="Email", name="email", class="form-control", value=email)
+                        label(for="correo")  Email
+                        input#correo(type="text", placeholder="Email", name="correo", class="form-control", value=correo)
                     .form-group
-                        label(for="message") Message 
-                        textarea#message(placeholder="Message", name="message", class="form-control", rows=3)=message
+                        label(for="mensaje") Message 
+                        textarea#mensaje(placeholder="Message", name="mensaje", class="form-control", rows=3)=mensaje
                     input.btn.btn-success.btn-block(type="submit")  
    
    

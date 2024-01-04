@@ -32,7 +32,7 @@ h3 {
     border-color: rgb(192, 7, 78);
 }
 .slider {
-    background: url(../img//superior.jpg);
+    background: url(../img//superior2.jpeg);
     min-height: 600px;
     height: 100vh;
     background-size: cover;
@@ -84,7 +84,7 @@ p {
 header .nav a {
     font-family: 'Staatliches', cursive;
     font-size: 2rem;
-    color: white;
+    color: grey;
 }
 footer .nav a,
 .copyright {

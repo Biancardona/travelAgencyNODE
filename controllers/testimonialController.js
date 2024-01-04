@@ -4,15 +4,15 @@ const testomonialMessage = async (req, res) => {
   //Need to parsear the info (in index.js)
 
   //Validate testimonial form, applying destructuring to read the values
-  const { name, email, message } = req.body;
+  const { nombre, correo, mensaje } = req.body;
   const errorMessages = [];
-  if (name.trim() === "") {
+  if (nombre.trim() === "") {
     errorMessages.push({ error: "Name field is empty" });
   }
-  if (email.trim() === "") {
+  if (correo.trim() === "") {
     errorMessages.push({ error: "Email field is empty" });
   }
-  if (message.trim() === "") {
+  if (mensaje.trim() === "") {
     errorMessages.push({ error: "Message field is empty" });
   }
   //If exist a message, render it
@@ -23,17 +23,17 @@ const testomonialMessage = async (req, res) => {
     res.render("testimonials", {
       pagina: "Testimonials",
       errorMessages,
-      name: name,
-      email: email,
-      message: message,
+      name: nombre,
+      email: correo,
+      message: mensaje,
       resultTestimonials: testimoniales,
     });
   } else {
     try {
       await Testimoniales.create({
-        name,
-        email,
-        message,
+        nombre,
+        correo,
+        mensaje,
       });
       res.redirect("/testimonials");
     } catch (error) {

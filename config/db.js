@@ -1,28 +1,23 @@
 import Sequelize from "sequelize";
 import dotenv from "dotenv";
-
+//Enabling environment variables
 dotenv.config();
 
 //New instance of sequelize
 //Pass the name of the db , and the user name, the password(empty), and some configs
-const db = new Sequelize(
-  process.env.MYSQLDATABASE,
-  process.env.MYSQLUSER,
-  process.env.MYSQLPASSWORD,
-  {
-    host: process.env.MYSQLHOST,
-    port: process.env.MYSQLPORT,
-    dialect: "mysql",
-    define: {
-      timestamps: false,
-    },
-    pool: {
-      max: 5,
-      min: 0,
-      acquire: 30000,
-      idle: 10000,
-    },
-    operatorAliases: false,
-  }
+const db = new Sequelize(process.env.DB_URL, {
+  dialect: "mysql",
+
+  define: {
+    timestamps: false,
+  },
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000,
+  },
+  operatorAliases: false,
+}
 );
 export default db;
